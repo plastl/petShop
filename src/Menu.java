@@ -11,33 +11,61 @@ public class Menu {
     int index1 = 0;
 
     public void shopCat(){
-        System.out.println("Введите имя кота: ");
-        String namecat = scanner.nextLine();
+        if (index<arrayCats.length) {
+            System.out.println("Введите имя кота: ");
+            String namecat = scanner.nextLine();
+            do {
+                if (namecat.length()==0){
+                    System.out.println("Введите еще раз имя кота: ");
+                    namecat = scanner.nextLine();
+                }
+            }while (namecat.length()==0);
 
-        System.out.println("Введите цвет кота: ");
-        String colorcat = scanner.nextLine();
+            System.out.println("Введите цвет кота: ");
+            String colorcat = scanner.nextLine();
+            do {
+                if (colorcat.length()==0){
+                    System.out.println("Введите еще раз цвет кота: ");
+                    colorcat = scanner.nextLine();
+                }
+            }while (colorcat.length()==0);
 
-        Cat cat = new Cat(namecat, colorcat);
-        
-        arrayCats[index] = cat;
-        index ++;
-        
-        cat.info();
+            Cat cat = new Cat(namecat, colorcat);
+            arrayCats[index] = cat;
+            index++;
+            cat.info();
+        }else {
+            System.out.println("Вы превысили лимит покупок!\n");
+        }
     }
 
     public void shopDog(){
-        System.out.println("Введите имя пса: ");
-        String namedog = scanner.nextLine();
+        if (index1< arrayDogs.length) {
+            System.out.println("Введите имя пса: ");
+            String namedog = scanner.nextLine();
+            do{
+                if (namedog.length()==0){
+                    System.out.println("Введите еще раз имя пса: ");
+                    namedog = scanner.nextLine();
+                }
+            }while (namedog.length()==0);
 
-        System.out.println("Введите цвет пса: ");
-        String colordog = scanner.nextLine();
+            System.out.println("Введите цвет пса: ");
+            String colordog = scanner.nextLine();
+            do {
+                if (colordog.length()==0){
+                    System.out.println("Введите еще раз цвет пса: ");
+                    colordog = scanner.nextLine();
+                }
+            }while (colordog.length()==0);
 
-        Dog dog = new Dog(namedog, colordog);
-
-        arrayDogs[index1] = dog;
-        index1 ++;
-        
-        dog.info();
+            Dog dog = new Dog(namedog, colordog);
+            arrayDogs[index1] = dog;
+            index1++;
+            dog.info();
+        }else {
+            System.out.println("Вы превысили лимит покупок!\n");
+        }
     }
 
     public void listCat(){
